@@ -1,4 +1,4 @@
-# 🧭 Grid World — Reinforcement Learning Playground
+#  Grid World — Reinforcement Learning Playground
 
 A clean, well-tested implementation of a **Grid World environment** with three classic RL algorithms:
 
@@ -40,13 +40,13 @@ gridworld_project/
 
 ---
 
-## ⚡ Quick Start
+##  Quick Start
 
 ### 1. Clone and Install
 
 ```bash
 git clone https://github.com/yourusername/gridworld_project.git
-cd gridworld-rl
+cd gridworld_project
 
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
@@ -132,7 +132,7 @@ print(env.render(policy=agent.get_policy()))    # ASCII visualization
 
 ---
 
-## 🤖 Agents
+##  Agents
 
 ### Q-Learning
 
@@ -190,7 +190,7 @@ print(f"Policy updates: {history['n_policy_updates']}")
 
 ---
 
-## 📊 Visualization
+##  Visualization
 
 ```python
 from gridworld.utils import (
@@ -215,7 +215,7 @@ plot_convergence(history)
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # All tests
@@ -231,7 +231,7 @@ open htmlcov/index.html
 
 ---
 
-## 📘 Key Concepts
+##  Key Concepts
 
 ### Markov Decision Process (MDP)
 
@@ -260,6 +260,6 @@ Q(s,a) ← Q(s,a) + α [r + γ max_a' Q(s',a') - Q(s,a)]
 
 ---
 
-## 📄 License
+## License
 
 MIT License. See [LICENSE](LICENSE) for details.
