@@ -228,7 +228,20 @@ pytest tests/test_agents.py -v -k "qlearning"
 pytest tests/ --cov=gridworld --cov-report=html
 open htmlcov/index.html
 ```
+---
+title: Gridworld RL Demo
+emoji: 🤖
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: 4.0.0
+app_file: app.py
+pinned: false
+---
 
+
+
+Move the agent to reach the goal.
 ---
 
 ##  Key Concepts
