@@ -9,8 +9,8 @@ with open("requirements.txt") as f:
 setup(
     name="gridworld-rl",
     version="1.0.0",
-    author="Your Name",
-    author_email="you@example.com",
+    author="ru1rxneel",
+    author_email="rudraneelkhamaru@gmail.com",
     description="A Grid World reinforcement learning environment with Q-Learning, Value Iteration, and Policy Iteration",
     long_description=long_description,
     long_description_content_type="text/markdown",
