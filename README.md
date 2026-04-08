@@ -45,7 +45,7 @@ gridworld_project/
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/yourusername/gridworld-rl.git
+git clone https://github.com/yourusername/gridworld_project.git
 cd gridworld-rl
 
 python -m venv venv
