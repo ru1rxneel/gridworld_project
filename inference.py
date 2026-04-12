@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 import numpy as np
 
 app = FastAPI()
@@ -6,6 +7,10 @@ app = FastAPI()
 GRID_SIZE = 5
 agent = [0, 0]
 goal = [4, 4]
+
+# Request model for /step
+class Action(BaseModel):
+    action: int
 
 def get_obs():
     grid = np.zeros((GRID_SIZE, GRID_SIZE))
@@ -30,17 +35,19 @@ def reset():
     }
 
 @app.post("/step")
-def step(action: int):
+def step(action: Action):
     global agent
 
-    if action == 0:
-        agent[0] = max(0, agent[0]-1)
-    elif action == 1:
-        agent[0] = min(GRID_SIZE-1, agent[0]+1)
-    elif action == 2:
-        agent[1] = max(0, agent[1]-1)
-    elif action == 3:
-        agent[1] = min(GRID_SIZE-1, agent[1]+1)
+    move = action.action
+
+    if move == 0:
+        agent[0] = max(0, agent[0] - 1)
+    elif move == 1:
+        agent[0] = min(GRID_SIZE - 1, agent[0] + 1)
+    elif move == 2:
+        agent[1] = max(0, agent[1] - 1)
+    elif move == 3:
+        agent[1] = min(GRID_SIZE - 1, agent[1] + 1)
 
     done = agent == goal
     reward = 1 if done else -0.01
@@ -50,4 +57,13 @@ def step(action: int):
         "reward": reward,
         "done": done,
         "info": {}
+    }
+
+# Optional but useful (some validators check this)
+@app.get("/state")
+def state():
+    return {
+        "agent": agent,
+        "goal": goal,
+        "observation": get_obs()
     }
