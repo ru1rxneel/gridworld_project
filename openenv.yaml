@@ -1,0 +1,6 @@
+name: gridworld
+description: Simple GridWorld environment
+
+endpoints:
+  reset: /reset
+  step: /step
