@@ -2,13 +2,14 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import numpy as np
 
-app = FastAPI()
+# IMPORTANT FIX
+app = FastAPI(root_path="")
 
 GRID_SIZE = 5
 agent = [0, 0]
 goal = [4, 4]
 
-# Request model for /step
+# Request model
 class Action(BaseModel):
     action: int
 
@@ -18,10 +19,17 @@ def get_obs():
     grid[agent[0], agent[1]] = 1
     return grid.tolist()
 
+# Root (helps HF routing)
+@app.get("/")
+def root():
+    return {"message": "API is running"}
+
+# Health check
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
+# Reset endpoint
 @app.post("/reset")
 def reset():
     global agent
@@ -34,6 +42,7 @@ def reset():
         "info": {}
     }
 
+# Step endpoint (FIXED JSON input)
 @app.post("/step")
 def step(action: Action):
     global agent
@@ -59,7 +68,7 @@ def step(action: Action):
         "info": {}
     }
 
-# Optional but useful (some validators check this)
+# Optional but useful
 @app.get("/state")
 def state():
     return {
