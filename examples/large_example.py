@@ -1,3 +1,4 @@
+#this portion is still being tested
 import random
 
 WIDTH = 256
