@@ -12,6 +12,7 @@ A clean, well-tested implementation of a **Grid World environment** with three c
                                         
 ## 📁 Project Structure
 
+
 ```
 gridworld_project/
 ├── gridworld/
@@ -78,6 +79,7 @@ pytest tests/ -v --cov=gridworld --cov-report=term-missing
 ---
 
 ## 🗺 Environment
+
 
 ### Grid Cells
 
